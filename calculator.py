@@ -1,5 +1,16 @@
 import math
 
+def num_not_saved_invalid():
+    save_number = False
+    function = None
+    print("Unfortunately, as this number is undefined, you will not be able to save it.")
+    numbers = input("Will we be working with 1 or 2 numbers now? ")
+
+def num_not_saved_user():
+    save_number = False
+    function = None
+    numbers = input("Will we be working with 1 or 2 numbers now? ")
+
 def add_numbers(num1, num2): # Takes the two values, adds them together and returns the result
     result = num1 + num2
     return result
@@ -135,10 +146,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                 if function.lower() == "square-root":
                     print(f"The result of square-rooting {num1} is: {root_number(num1)}")
                     if root_number(num1) == "Undefined, due to the fact that negative numbers cannot be square-rooted, as they are represented by 'i' by most mathematicians and are too complex for the realms of this calculator.": # Prevents the user from saving a result that is undefined
-                        save_number = False
-                        function = None
-                        print("Unfortunately, as this number is undefined, you will not be able to save it.")
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_invalid()
                     else:
                         save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ') # Asks if the user would like to save this number as the num1 variable for the next equation
                         if save_number.upper() == "Y":
@@ -147,9 +155,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                             function = None # Clears the variable prescribed by the user
                             numbers = input("Will we be working with 1 or 2 numbers now? ") # Loops back around to the start of the while loop
                         else:
-                            save_number = False # Resets to the start
-                            function = None
-                            numbers = input("Will we be working with 1 or 2 numbers now? ")
+                            num_not_saved_user()
                 elif function.lower() == "sine":
                     print(f"The sine value of {num1} is: {sine_number(num1)} radians")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -159,9 +165,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ") 
+                        num_not_saved_user() 
                 elif function.lower() == "cosine":
                     print(f"The cosine value of {num1} is: {cosine_number(num1)} radians")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -171,9 +175,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_user()
                 elif function.lower() == "tangent":
                     print(f"The tangent value of {num1} is: {tangent_number(num1)} radians")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -183,9 +185,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_user()
                 elif function.lower() == "percent":
                     print(f"The percent value of {num1} is: {percentage_value(num1)}")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -207,9 +207,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_user()
                 elif function.lower() == "basis-point":
                     print(f"The basis-point value of {num1} is: {basis_point_value(num1)}")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -219,9 +217,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_user()
                 elif function.lower() == "pcm":
                     print(f"The parts-per-cent-mille value of {num1} is: {parts_per_cent_mille(num1)}")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -231,9 +227,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ") 
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_user()
                 elif function.lower() == "ppm":
                     print(f"The parts-per-million value of {num1} is: {parts_per_million(num1)}")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -243,16 +237,11 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_user()
                 elif function.lower() == "natural logarithm":
                     print(f'The natural logarithmic value of {num1} is: {natural_logarithmic_value(num1)}')
                     if natural_logarithmic_value(num1) == "Undefined, as you cannot get zero by raising anything to the power of anything else." or natural_logarithmic_value(num1) == "Undefined, as you cannot get a number that is less than zero by raising anything to the power of anything else. This is the same issue with square-rooting a negative number.":
-                        save_number = False
-                        function = None
-                        print("Unfortunately, as this number is undefined, you will not be able to save it.")
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_invalid()
                     else: 
                         save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
                         if save_number.upper() == "Y":
@@ -261,16 +250,11 @@ while numbers != '': # Loops indefinitely until an empty space is input
                             function = None
                             numbers = input("Will we be working with 1 or 2 numbers now? ")
                         else:
-                            save_number = False
-                            function = None
-                            numbers = input("Will we be working with 1 or 2 numbers now? ")
+                            num_not_saved_user()
                 elif function.lower() == "base-10 logarithm":
                     print(f'The base-10 logarithmic value of {num1} is: {base_10_logarithmic_value(num1)}')
                     if base_10_logarithmic_value(num1) == "Undefined, as you cannot get zero by raising anything to the power of anything else." or base_10_logarithmic_value(num1) == "Undefined, as you cannot get a number that is less than zero by raising anything to the power of anything else. This is the same issue with square-rooting a negative number.":
-                        save_number = False
-                        function = None
-                        print("Unfortunately, as this number is undefined, you will not be able to save it.")
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_invalid()
                     else:
                         save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
                         if save_number.upper() == "Y":
@@ -279,16 +263,11 @@ while numbers != '': # Loops indefinitely until an empty space is input
                             function = None
                             numbers = input("Will we be working with 1 or 2 numbers now? ")
                         else:
-                            save_number = False
-                            function = None
-                            numbers = input("Will we be working with 1 or 2 numbers now? ")
+                            num_not_saved_user()
                 elif function.lower() == "factorial":
                     print(f'The factorial value of {num1} is: {factorial_value(num1)}')
                     if factorial_value(num1) == "Undefined, as you cannot find the factorial value of a decimal number.":
-                        save_number = False
-                        function = None
-                        print("Unfortunately, as this number is undefined, you will not be able to save it.")
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_invalid()
                     else:
                         save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
                         if save_number.upper() == "Y":
@@ -297,9 +276,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                             function = None
                             numbers = input("Will we be working with 1 or 2 numbers now? ")
                         else:
-                            save_number = False
-                            function = None
-                            numbers = input("Will we be working with 1 or 2 numbers now? ")
+                            num_not_saved_user()
                     
                 else:
                     print("Sorry, I don't recognise that operation.")
@@ -323,9 +300,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_user()
                 elif function.lower() == "subtraction":
                     print(f"The subtraction of {num2} from {num1} is: {subtract_numbers(num1, num2)}")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -335,9 +310,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ") 
+                       num_not_saved_user() 
                 elif function.lower() == "multiplication":
                     print(f"The multiplication of {num1} and {num2} is: {multiply_numbers(num1, num2)}")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -347,16 +320,11 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = (input("Will we be working with 1 or 2 numbers now? ")) 
                     else:
-                        save_number = False
-                        function = None
-                        numbers = (input("Will we be working with 1 or 2 numbers now? ")) 
+                        num_not_saved_user() 
                 elif function.lower() == "division":
                     print(f"The division of {num1} by {num2} is: {divide_numbers(num1, num2)}")
                     if divide_numbers(num1, num2) == "Undefined, due to the fact that anything divided by 0 cannot be computed.":
-                        save_number = False
-                        function = None
-                        print("Unfortunately, as this number is undefined, you will not be able to save it.")
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_invalid()
                     else:
                         save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
                         if save_number.upper() == "Y":
@@ -365,9 +333,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                             function = None
                             numbers = input("Will we be working with 1 or 2 numbers now? ")
                         else:
-                            save_number = False
-                            function = None
-                            numbers = input("Will we be working with 1 or 2 numbers now? ")
+                           num_not_saved_user()
                 elif function.lower() == "raise":
                     print(f"The result of raising {num1} to the power of {num2} is: {raise_numbers(num1, num2)}")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
@@ -377,16 +343,11 @@ while numbers != '': # Loops indefinitely until an empty space is input
                         function = None
                         numbers = input("Will we be working with 1 or 2 numbers now? ")
                     else:
-                        save_number = False
-                        function = None
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_user()
                 elif function.lower() == "gcd":
                     print(f'The greatest common divisor of {num1} and {num2} is: {(greatest_common_divisor(num1, num2))}')
                     if greatest_common_divisor(num1, num2) == "Undefined, as you cannot find the greatest common divisor of a decimal.":
-                        save_number = False
-                        function = None
-                        print("Unfortunately, as this number is undefined, you will not be able to save it.")
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_invalid()
                     else:
                         save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
                         if save_number.upper() == "Y":
@@ -395,17 +356,12 @@ while numbers != '': # Loops indefinitely until an empty space is input
                             function = None
                             numbers = input("Will we be working with 1 or 2 numbers now? ")
                         else:
-                            save_number = False
-                            function = None
-                            numbers = input("Will we be working with 1 or 2 numbers now? ")
+                           num_not_saved_user()
                 elif function.lower() == "lcm":
                     print(f"The lowest common multiple of {num1} and {num2} is: {lowest_common_multiple(num1)}")
                     save_number = input('Would you like to save this result as a variable? (Y for yes, N for no) ')
                     if lowest_common_multiple(num1, num2) == "Undefined, as you cannot find the lowest common multiple of a decimal.":
-                        save_number = False
-                        function = None
-                        print("Unfortunately, as this number is undefined, you will not be able to save it.")
-                        numbers = input("Will we be working with 1 or 2 numbers now? ")
+                        num_not_saved_invalid()
                     else:
                         if save_number.upper() == "Y":
                             save_number = True
@@ -413,9 +369,7 @@ while numbers != '': # Loops indefinitely until an empty space is input
                             function = None
                             numbers = input("Will we be working with 1 or 2 numbers now? ") 
                         else:
-                            save_number = False
-                            function = None
-                            numbers = input("Will we be working with 1 or 2 numbers now? ")
+                            num_not_saved_user()
                 else:
                     print("Sorry, I don't recognise that operation.")
                     function = input("What function would you like to perform? ")
