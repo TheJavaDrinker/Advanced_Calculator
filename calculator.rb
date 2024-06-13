@@ -1,9 +1,17 @@
-print "Please enter a number: "
-number1 = gets.chomp.to_i
+while numbers:
+    puts "How many numbers would you like to work with?"
+    numbers = gets.chomp
 
-print "Please enter another number"
-number2 = gets.chomp.to_i
+    if numbers == '1'
+        puts "Great! What will the first number be?"
+        num1 = gets.chomp.to_i
 
-sum = number1 + number2
-
-puts "The result of adding #{num1} and #{num2} is: #{sum}"
+    elsif numbers == '2'
+        puts "Great! What will the first number be?"
+        num1 = gets.chomp.to_i
+        puts "What will the second number be?:"
+        num2 = gets.chomp.to_i
+    else
+        print "I can only work with 1 or 2 numbers."
+        puts "How many numbers would you like to work with?"
+    end
